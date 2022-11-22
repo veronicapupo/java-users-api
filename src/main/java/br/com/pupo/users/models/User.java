@@ -17,8 +17,13 @@ public class User {
     private String email;
     private String password;
     private String cpf;
-    private String address;
+    private String cep;
     private String phone;
+    private String lograduro;
+    private String complemento;
+    private String bairro;
+    private String localidade;
+    private String uf;
 
     public static User from(UserJson u) {
         return User.builder()
@@ -27,8 +32,14 @@ public class User {
                 .email(u.getEmail())
                 .password(u.getPassword())
                 .phone(u.getPhone())
-                .address(u.getAddress())
+                .cep(u.getCep())
                 .cpf(u.getCpf())
+                .lograduro(u.getLograduro())
+                .complemento(u.getComplemento())
+                .bairro(u.getBairro())
+                .localidade(u.getLocalidade())
+                .uf(u.getUf())
                 .build();
     }
+
 }

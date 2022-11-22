@@ -11,11 +11,16 @@ public class UserJson {
     private String email;
     private String password;
     private String cpf;
-    private String address;
     private String phone;
     private Boolean risk;
+    private String cep;
+    private String lograduro;
+    private String complemento;
+    private String bairro;
+    private String localidade;
+    private String uf;
 
-    //TODO: trocar para Builder do lombok
+    // TODO: trocar para Builder do lombok
     public static UserJson of(User u) {
         var json = new UserJson();
         json.setId(u.getId());
@@ -23,8 +28,13 @@ public class UserJson {
         json.setEmail(u.getEmail());
         json.setPassword(u.getPassword());
         json.setCpf(u.getCpf());
-        json.setAddress(u.getAddress());
+        json.setCep(u.getCep());
         json.setPhone(u.getPhone());
+        json.setLograduro((u.getLograduro()));
+        json.setBairro((u.getBairro()));
+        json.setComplemento((u.getComplemento()));
+        json.setLocalidade((u.getLocalidade()));
+        json.setUf((u.getUf()));
         return json;
     }
 }
