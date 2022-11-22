@@ -1,6 +1,6 @@
-package br.com.pupo.users.controllers;
+package br.com.pupo.users.exceptions;
 
-import br.com.pupo.users.AddressValidationException;
+import br.com.pupo.users.exceptions.AddressValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
