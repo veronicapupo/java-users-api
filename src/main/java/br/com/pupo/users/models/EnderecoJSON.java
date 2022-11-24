@@ -1,8 +1,10 @@
 package br.com.pupo.users.models;
 
+import lombok.Builder;
 import lombok.Getter;
 
 @Getter
+@Builder
 public class EnderecoJSON {
     private String cep;
     private String logradouro;

@@ -1,11 +1,14 @@
 package br.com.pupo.users.models;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+
+@Builder
 @Getter
 @Setter
-public class UserJson {
+public class UserJson extends Object {
     private Long id;
     private String name;
     private String email;
@@ -13,29 +16,29 @@ public class UserJson {
     private String cpf;
     private String phone;
     private Boolean risk;
-    private String cep;
-    private String lograduro;
-    private String complemento;
-    private String bairro;
-    private String localidade;
-    private String uf;
+    // private AddressJson address
+        private String cep;
+        private String lograduro;
+        private String complemento;
+        private String bairro;
+        private String localidade;
+        private String uf;
 
-    // TODO: trocar para Builder do lombok
     public static UserJson of(User u) {
-        var json = new UserJson();
-        json.setId(u.getId());
-        json.setName(u.getName());
-        json.setEmail(u.getEmail());
-        json.setPassword(u.getPassword());
-        json.setCpf(u.getCpf());
-        json.setCep(u.getCep());
-        json.setPhone(u.getPhone());
-        json.setLograduro((u.getLograduro()));
-        json.setBairro((u.getBairro()));
-        json.setComplemento((u.getComplemento()));
-        json.setLocalidade((u.getLocalidade()));
-        json.setUf((u.getUf()));
-        return json;
+        return UserJson.builder()
+                .id(u.getId())
+                .name(u.getName())
+                .email(u.getEmail())
+                .password(u.getPassword())
+                .cpf(u.getCpf())
+                .cep(u.getCep())
+                .phone(u.getPhone())
+                .localidade(u.getLocalidade())
+                .lograduro(u.getLograduro())
+                .bairro(u.getBairro())
+                .complemento(u.getComplemento())
+                .uf(u.getUf())
+                .build();
     }
 }
 
