@@ -1,14 +1,11 @@
 package br.com.pupo.users.models;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.Builder;
 import org.springframework.http.HttpStatus;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@lombok.Data
-public class ResponseAPI {
-    private UserJson data;
+@Builder
+public class ResponseAPI<T> {
+    private T data;
     private HttpStatus status;
     private String[] errors;
 }
