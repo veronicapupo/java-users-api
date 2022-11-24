@@ -1,23 +1,22 @@
 package br.com.pupo.users.exceptions;
 
-import br.com.pupo.users.exceptions.AddressValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @RestControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = {RuntimeException.class, Exception.class})
-    protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
-        return new ResponseEntity<>("erro inesperado", HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+// TODO : Definir onde vai ficar o tratamento caso falhe a integração
+//    @ExceptionHandler(FeignException.class)
+//    public ResponseEntity<String> handleFeignStatusException(FeignException e, HttpServletResponse response) {
+//        return new ResponseEntity<>("Integracao falhou ", HttpStatus.valueOf(e.status()));
+//    }
 
     @ExceptionHandler(value = {AddressValidationException.class})
-    protected ResponseEntity<Object> addressException(RuntimeException ex) {
+    protected ResponseEntity<String> addressException(RuntimeException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
